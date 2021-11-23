@@ -6,8 +6,7 @@ export default StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: '#f1c40f',
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 60,
     alignItems: 'center',
     paddingBottom: 10,
   },

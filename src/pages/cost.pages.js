@@ -50,7 +50,7 @@ function CostPages() {
           }}
           style={CostStyle.headerImage}
         />
-        <Text style={CostStyle.headerTXT}>Afifah Humaira - 21120119120004</Text>
+        <Text style={CostStyle.headerTXT}>Afifa Humaira - 21120119140141</Text>
       </View>
       <Text style={CostStyle.judulTXT}>Artis :</Text>
       <TextInput

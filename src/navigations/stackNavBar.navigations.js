@@ -19,7 +19,7 @@ function StackNavBar() {
         }}
       />
       <NavStack.Screen
-        name="Cek Ongkir"
+        name="Cari Lirik"
         component={Pages.CostPages}
         options={{
           tabBarIcon: ({color}) => {

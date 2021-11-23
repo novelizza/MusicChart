@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, Image, Alert, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  Alert,
+  TouchableOpacity,
+  Linking,
+} from 'react-native';
 import Style from '../stylessheets';
 import axios from 'axios';
 
@@ -11,7 +18,7 @@ function ProfilePages() {
   React.useEffect(() => {
     async function fetchData() {
       await axios
-        .get('https://api.github.com/users/shafiyahhuyai')
+        .get('https://api.github.com/users/afifahumaira')
         .then(res => setData(res.data))
         .catch(e => Alert.alert('Gagal!', e));
     }
@@ -32,7 +39,6 @@ function ProfilePages() {
         <Text style={[ProfileStyle.headerTXT, {textAlign: 'center'}]}>
           {data.bio}
         </Text>
-        <Text style={ProfileStyle.headerTXT}>{data.blog}</Text>
         <View style={ProfileStyle.followerContainer}>
           <Text style={ProfileStyle.headerTXTDesc}>
             {data.public_repos + ' Repository'}
@@ -46,6 +52,13 @@ function ProfilePages() {
             {data.following + ' Following'}
           </Text>
         </View>
+        <TouchableOpacity
+          style={ProfileStyle.touchableContainer}
+          onPress={() =>
+            Linking.openURL('https://api.github.com/users/afifahumaira')
+          }>
+          <Text style={ProfileStyle.touchableTXT}>Buka Github</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

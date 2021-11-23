@@ -73,9 +73,7 @@ function HomePages() {
           }}
           style={HomeStyle.headerImage}
         />
-        <Text style={HomeStyle.headerTXT}>
-          Afifah Humaira - 211201191XXXXXXX
-        </Text>
+        <Text style={HomeStyle.headerTXT}>Afifa Humaira - 21120119140141</Text>
       </View>
       <Text style={[HomeStyle.judulTXT, {alignSelf: 'center'}]}>
         List Artist Top Tracks

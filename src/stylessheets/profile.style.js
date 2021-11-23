@@ -6,8 +6,7 @@ export default StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: '#aa1',
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 60,
     alignItems: 'center',
     paddingBottom: 10,
   },
@@ -38,5 +37,18 @@ export default StyleSheet.create({
   },
   followerContainer: {
     flexDirection: 'row',
+  },
+  touchableContainer: {
+    backgroundColor: '#3498db',
+    marginTop: 20,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+    alignItems: 'center',
+  },
+  touchableTXT: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginVertical: 5,
   },
 });
