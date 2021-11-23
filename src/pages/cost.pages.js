@@ -19,32 +19,26 @@ function CostPages() {
   const navigation = useNavigation();
 
   const [data, setData] = React.useState({
-    origin: '',
-    destination: '',
-    weight: 0,
+    artist: '',
+    title: '',
   });
 
   async function fetchData() {
-    const formData = new FormData();
-    formData.append('origin', data.origin.toString());
-    formData.append('destination', data.destination.toString());
-    formData.append('weight', data.weight);
-    formData.append('courier', 'jne');
-    await axios
-      .post('https://api.rajaongkir.com/starter/cost', formData, {
-        headers: {
-          key: 'a859a88a391906818f6cb78fb4bdfc74',
-          'content-type': 'application/x-www-form-urlencoded',
-        },
-      })
-      .then(res => {
-        dispatch({
-          type: 'FILL_COST',
-          inputValue: res.data.rajaongkir,
-        });
-        navigation.navigate('CostDetailPage');
-      })
-      .catch(e => Alert.alert('Gagal!', e));
+    if (data.artist !== '' && data.title !== '') {
+      await axios
+        .get('https://api.lyrics.ovh/v1/' + data.artist + '/' + data.title)
+        .then(res => {
+          console.log(res.data);
+          dispatch({
+            type: 'FILL_LIRIK',
+            inputValue: res.data.lyrics,
+          });
+          navigation.navigate('CostDetailPage');
+        })
+        .catch(e => Alert.alert('Gagal!', e));
+    } else {
+      Alert.alert('Warning!', 'Di isi dulu kolom artis dan judul');
+    }
   }
 
   return (
@@ -56,41 +50,27 @@ function CostPages() {
           }}
           style={CostStyle.headerImage}
         />
-        <Text style={CostStyle.headerTXT}>Shafiyah Huyai - 21120119120004</Text>
+        <Text style={CostStyle.headerTXT}>Afifah Humaira - 21120119120004</Text>
       </View>
-      <Text style={CostStyle.judulTXT}>Kode Kota Awal :</Text>
+      <Text style={CostStyle.judulTXT}>Artis :</Text>
       <TextInput
         style={CostStyle.textInput}
-        placeholder="Kode Kota Awal"
-        keyboardType="numeric"
+        placeholder="Artist"
         onChangeText={value =>
           setData({
             ...data,
-            ['origin']: value,
+            ['artist']: value,
           })
         }
       />
-      <Text style={CostStyle.judulTXT}>Kode Kota Tujuan :</Text>
+      <Text style={CostStyle.judulTXT}>Judul :</Text>
       <TextInput
         style={CostStyle.textInput}
-        placeholder="Kode Kota Tujuan"
-        keyboardType="numeric"
+        placeholder="Judul"
         onChangeText={value =>
           setData({
             ...data,
-            ['destination']: value,
-          })
-        }
-      />
-      <Text style={CostStyle.judulTXT}>Berat :</Text>
-      <TextInput
-        style={CostStyle.textInput}
-        placeholder="Berat (dalam gram)"
-        keyboardType="numeric"
-        onChangeText={value =>
-          setData({
-            ...data,
-            ['weight']: value,
+            ['title']: value,
           })
         }
       />
@@ -99,7 +79,7 @@ function CostPages() {
           fetchData();
         }}
         style={CostStyle.touchableContainer}>
-        <Text style={CostStyle.touchableTXT}>Cek Ongkir</Text>
+        <Text style={CostStyle.touchableTXT}>Cari Lirik</Text>
       </TouchableOpacity>
     </View>
   );

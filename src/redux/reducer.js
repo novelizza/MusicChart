@@ -1,27 +1,25 @@
 import {combineReducers} from 'redux';
 
-const initialStateProvCity = {
-  province_id: {},
-  city_id: {},
+const initialStateTrack = {
+  topTrack: {},
 };
 
-const ProvCityReducer = (state = initialStateProvCity, action) => {
-  if (action.type === 'FILL_PROVCITY') {
+const TrackReducer = (state = initialStateTrack, action) => {
+  if (action.type === 'FILL_TRACK') {
     return {
       ...state,
-      ['province_id']: action.inputValue.city_id,
-      ['city_id']: action.inputValue.province_id,
+      ['topTrack']: action.inputValue,
     };
   }
   return state;
 };
 
-const initialStateCost = {
+const initialStateLirik = {
   data: {},
 };
 
-const CostReducer = (state = initialStateCost, action) => {
-  if (action.type === 'FILL_COST') {
+const LirikReducer = (state = initialStateLirik, action) => {
+  if (action.type === 'FILL_LIRIK') {
     return {
       ...state,
       ['data']: action.inputValue,
@@ -31,8 +29,8 @@ const CostReducer = (state = initialStateCost, action) => {
 };
 
 const reducer = combineReducers({
-  ProvCityReducer,
-  CostReducer,
+  TrackReducer,
+  LirikReducer,
 });
 
 export default reducer;

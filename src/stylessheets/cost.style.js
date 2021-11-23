@@ -5,7 +5,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   headerContainer: {
-    backgroundColor: '#aa1',
+    backgroundColor: '#f1c40f',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     alignItems: 'center',
@@ -20,7 +20,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
   },
   touchableContainer: {
-    backgroundColor: '#aa1',
+    backgroundColor: '#f1c40f',
     margin: 10,
     borderRadius: 5,
     alignItems: 'center',
@@ -41,6 +41,7 @@ export default StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     marginHorizontal: 10,
     paddingVertical: 0,
+    borderRadius: 5,
   },
   itemListContainerGanjil: {
     backgroundColor: '#1aa',

@@ -5,7 +5,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   headerContainer: {
-    backgroundColor: '#aa1',
+    backgroundColor: '#f1c40f',
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     alignItems: 'center',
@@ -14,6 +14,12 @@ export default StyleSheet.create({
   headerImage: {
     height: 120,
     width: 100,
+  },
+  headerImageArtist: {
+    height: 200,
+    width: 200,
+    margin: 10,
+    alignSelf: 'center',
   },
   headerTXT: {
     color: '#fff',
@@ -29,15 +35,18 @@ export default StyleSheet.create({
     borderRadius: 5,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 10,
+    padding: 10,
+    marginRight: 20,
+    marginLeft: 10,
   },
   itemListContainerGenap: {
-    backgroundColor: '#1a0',
+    backgroundColor: '#8e44ad',
     marginVertical: 5,
     borderRadius: 5,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 10,
+    padding: 10,
+    marginHorizontal: 10,
   },
   itemListContent: {
     marginLeft: 10,
@@ -53,7 +62,7 @@ export default StyleSheet.create({
     height: '80%',
   },
   itemListTXT: {
-    color: '#11d',
+    color: '#f1c40f',
     marginLeft: 10,
     fontWeight: 'bold',
     fontSize: 17,
@@ -71,7 +80,7 @@ export default StyleSheet.create({
     marginHorizontal: 10,
   },
   touchableContainer: {
-    backgroundColor: '#aa1',
+    backgroundColor: '#3498db',
     marginHorizontal: 10,
     borderRadius: 5,
     alignItems: 'center',
@@ -80,6 +89,9 @@ export default StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 20,
+    marginVertical: 5,
+  },
+  blank: {
     marginVertical: 5,
   },
 });

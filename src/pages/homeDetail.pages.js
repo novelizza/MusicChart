@@ -1,40 +1,38 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Linking, TouchableOpacity} from 'react-native';
 import Style from '../stylessheets';
 import {useSelector} from 'react-redux';
 
 const {HomeStyle} = Style;
 
 function HomeDetailPages() {
-  const ProvCityReducer = useSelector(state => state.ProvCityReducer);
+  const TrackReducer = useSelector(state => state.TrackReducer);
   return (
     <View style={HomeStyle.container}>
-      <View style={HomeStyle.headerContainer}>
+      <View>
         <Image
           source={{
-            uri: 'https://bit.ly/39BPh9p',
+            uri: TrackReducer.topTrack.images.background,
           }}
-          style={HomeStyle.headerImage}
+          style={HomeStyle.headerImageArtist}
         />
-        <Text style={HomeStyle.headerTXT}>Shafiyah Huyai - 21120119120004</Text>
-      </View>
-      <View>
-        <Text style={HomeStyle.judulTXT}>Kota Detail : </Text>
+        <Text style={HomeStyle.judulTXT}>Track Detail : </Text>
         <Text style={HomeStyle.itemListTXT}>
-          {'Kota ID : ' + ProvCityReducer.province_id.city_id}
+          {'Judul : ' + TrackReducer.topTrack.title}
         </Text>
         <Text style={HomeStyle.itemListTXT}>
-          {'Nama : ' +
-            ProvCityReducer.province_id.type +
-            ' ' +
-            ProvCityReducer.province_id.city_name}
+          {'Penyanyi : ' + TrackReducer.topTrack.subtitle}
         </Text>
-        <Text style={HomeStyle.itemListTXT}>
-          {'Provinsi : ' + ProvCityReducer.province_id.province}
-        </Text>
-        <Text style={HomeStyle.itemListTXT}>
-          {'Kode Pos : ' + ProvCityReducer.province_id.postal_code}
-        </Text>
+        <View style={HomeStyle.blank} />
+        <TouchableOpacity
+          style={HomeStyle.touchableContainer}
+          onPress={() =>
+            Linking.openURL(
+              'https://www.shazam.com/track/40333609/river-flows-in-you',
+            )
+          }>
+          <Text style={HomeStyle.touchableTXT}>Dengarkan</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

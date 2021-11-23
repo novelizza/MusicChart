@@ -1,11 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Pages from '../pages';
-import {
-  faMapMarkedAlt,
-  faDollarSign,
-  faUser,
-} from '@fortawesome/free-solid-svg-icons';
+import {faMusic, faFileAlt, faUser} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 
 const NavStack = createBottomTabNavigator();
@@ -14,13 +10,11 @@ function StackNavBar() {
   return (
     <NavStack.Navigator>
       <NavStack.Screen
-        name="Cek ID"
+        name="Top Tracks"
         component={Pages.HomePages}
         options={{
           tabBarIcon: ({color}) => {
-            return (
-              <FontAwesomeIcon icon={faMapMarkedAlt} size={20} color={color} />
-            );
+            return <FontAwesomeIcon icon={faMusic} size={20} color={color} />;
           },
         }}
       />
@@ -29,9 +23,7 @@ function StackNavBar() {
         component={Pages.CostPages}
         options={{
           tabBarIcon: ({color}) => {
-            return (
-              <FontAwesomeIcon icon={faDollarSign} size={20} color={color} />
-            );
+            return <FontAwesomeIcon icon={faFileAlt} size={20} color={color} />;
           },
         }}
       />
